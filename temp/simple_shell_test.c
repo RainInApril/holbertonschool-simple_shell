@@ -9,7 +9,7 @@ char **argarr(char *str)
 
 	token = strtok(str, " ");
 	add_node(&head, token);
-	printf("token : %s\n", token);
+	printf("token: %s\n", token);
         while (token != NULL)
 	{
 		token = strtok(NULL, " ");
@@ -22,7 +22,7 @@ char **argarr(char *str)
 	printf("list len:%d\n", listlen);
 	argv = malloc(sizeof(char *) * listlen);
 
-	while (argv[i])
+	while (i < listlen)
 	{
 		printf("head-str: %s\n", head->str);
 		argv[i] = strdup(head->str);
@@ -54,7 +54,7 @@ int main(void)
 		if (read == -1)
 			write(STDERR_FILENO, "Error\n", 7);
 		argv = argarr(input);
-		while (argv[i])
+		while (argv[i] != NULL)
 		{
 			printf("This is argv[%d]: %s\n", i, argv[i]);
 			i++;
