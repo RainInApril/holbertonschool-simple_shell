@@ -3,38 +3,24 @@
 
 .SH NAME
 .B Simple Shell
-- UNIX command language interpreter
+- UNIX command line interpreter
 
 .SH SYNOPSIS
 .B Simple Shell
 .B ./hsh
 
 .SH DESCRIPTION
+Simple shell is one version of a command language interpreter that executes commands read from the standard input.
+It's functionality is limited to certain shell builtin functions found in the environmental variable
 
-.SH CONVERSION SPECIFIERS
 
-.B c
-
-.B s
-
-.B %
-
-.I PATH
-
-.SS EXIT STATUS
-
-.I interactive
-
-.I non-interactive
-
-.SS Command Execution
-
-.SH RETURN VALUE
 
 .SH EXAMPLE
 
 .SH SEE ALSO
-.I https://man7.org/linux/man-pages/man3/I bash(1)/sh(1)/csh(1)/ksh(1)
+.I https://man7.org/linux/man-pages/man1/sh.1p.html
+.https://man7.org/linux/man-pages/man1/bash.1.html
+
 
 .SH BUGS
 Not any known
