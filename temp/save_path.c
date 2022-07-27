@@ -7,6 +7,7 @@
  * Return: pointer to start of list.
  */
 
+
 path_t *save_path(path_t **head, char *token)
 {
 	path_t *new;
