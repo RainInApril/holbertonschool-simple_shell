@@ -13,7 +13,7 @@ char *get_input(void)
 	read = getline(&input, &len, stdin);
 	if (read == -1)
 	{
-		write(STDERR_FILENO, "\n", 1);
+		write(STDOUT_FILENO, "\n", 1);
 		return (NULL);
 	}
 	if (input[read - 1] == '\n')
@@ -37,7 +37,8 @@ int main(void)
 		write(STDOUT_FILENO, "$ ", 2);
 		input = get_input();
 		argv = argarr(input);
-		execve(argv[0], argv, NULL);
+		if (execve(argv[0], argv, NULL) == -1)
+			exit (1);
 		free(argv);
 	}
 	return (0);
