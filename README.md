@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # :shell:
 # simple shell
 > A mini replica of the standard Shell 
