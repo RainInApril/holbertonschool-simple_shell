@@ -1,9 +1,12 @@
 # Compilation for the hsh simple shell requirements are 
 # gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh
 
-CC = gcc
-SRC = shell.c main.c
-CFLAGS = -g -Wall -Werror -Wextra -pedantic
+CC=gcc
+CFLAGS=-Wall -Werror -Wextra -pedantic -std=gnu89
+RM=rm -rf
+
+TARGET=shell
+SRC=
 
 # shell hsh
 all:
