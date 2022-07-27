@@ -1,7 +1,9 @@
 #include "main.h"
 
 /**
- * get_input - 
+ * get_input - grabs the input from the user.
+ *
+ * Return: returns pointer to string
  */
 
 char *get_input(void)
