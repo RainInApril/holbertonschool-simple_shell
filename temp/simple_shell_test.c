@@ -1,37 +1,28 @@
 #include "main.h"
 
-char **argarr(char *str)
+/**
+ * get_input - 
+ */
+
+char *get_input(void)
 {
-	list_t *head = NULL;
-	char *token;
-	char **argv;
-	int listlen, i = 0;
+	char *input = NULL;
+	size_t len = 0;
+	ssize_t read = 0;
 
-	token = strtok(str, " ");
-	add_node(&head, token);
-	 while (token != NULL)
+	read = getline(&input, &len, stdin);
+	if (read == -1)
 	{
-		token = strtok(NULL, " ");
-		if (token != NULL)
-			add_node_end(&head, token);
+		write(STDERR_FILENO, "\n", 1);
+		return (NULL);
 	}
-
-	listlen = list_len(head);
-    	argv = malloc(sizeof(char *) * listlen);
-
-	while (i < listlen)
-	{
-		argv[i] = strdup(head->str);
-		i++;
-		head = head->next;
-	}
-	argv[i] = NULL;
-	free_list(head);
-	return (argv);
+	if (input[read - 1] == '\n')
+		input[read - 1] = '\0';
+	return (input);
 }
 
 /**
- *main - test of saving linked list item
+ * main - test of saving linked list item
  *
  * Return: 0 always
  */
@@ -39,16 +30,12 @@ char **argarr(char *str)
 int main(void)
 {
 	char *input = NULL;
-	size_t len = 0;
-	ssize_t read = 0;
 	char **argv = NULL;
 
-	while (1)
+	while (isatty(STDIN_FILENO))
 	{
 		write(STDOUT_FILENO, "$ ", 2);
-		read = getline(&input, &len, stdin);
-		if (read == -1)
-			write(STDERR_FILENO, "Error\n", 7);
+		input = get_input();
 		argv = argarr(input);
 		execve(argv[0], argv, NULL);
 		free(argv);
