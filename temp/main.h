@@ -19,13 +19,18 @@ typedef struct list_s
 
 typedef struct path_s
 {
-	char *token;
+	char *str;
 	struct path_s *next;
 } path_t;
 list_t *add_node(list_t **head, const char *str);
 list_t *add_node_end(list_t **head, const char *str);
+path_t *save_path(path_t **head, char *token);
+path_t *save_path_end(path_t **head, const char *token);
 int list_len(const list_t *h);
 void free_list(list_t *head);
 int _strlen(const char *s);
+char *_strdup(const char *str);
+int _strcmp(char *s1, char *s2);
 char *_getenv(const char *name);
+int _setenv(const char *name, const char *value, int overwrite);
 #endif /* _MAIN_H_ */
