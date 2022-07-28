@@ -29,6 +29,7 @@ path_t *save_path_end(path_t **head, const char *token);
 int list_len(const list_t *h);
 void free_list(list_t *head);
 int _strlen(const char *s);
+char *_strcat(char *dest, char *src);
 char *_strdup(const char *str);
 int _strcmp(char *s1, char *s2);
 char *_getenv(const char *name);
