@@ -15,6 +15,7 @@ char *get_input(void)
 	read = getline(&input, &len, stdin);
 	if (read == -1)
 	{
+		free(input);
 		if (isatty(STDIN_FILENO))
 			write(STDOUT_FILENO, "\n", 1);
 		return (NULL);
@@ -35,7 +36,7 @@ int main(int ac,__attribute__ ((unused)) char *argv[], char **env)
 	char *input = NULL;
 	char **args = NULL;
 	pid_t child_id;
-	int status;
+	int status, i = 0;
 
 	while (ac)
 	{
@@ -60,6 +61,12 @@ int main(int ac,__attribute__ ((unused)) char *argv[], char **env)
 		else
 		{
 			wait(&status);
+			i = 0;
+			while(args[i])
+			{
+				free(args[i]);
+				i++;
+			}
 			free(args);
 		}
 	}
