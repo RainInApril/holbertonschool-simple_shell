@@ -15,7 +15,8 @@ char *get_input(void)
 	read = getline(&input, &len, stdin);
 	if (read == -1)
 	{
-		write(STDERR_FILENO, "\n", 1);
+		if (isatty(STDIN_FILENO))
+			write(STDOUT_FILENO, "\n", 1);
 		return (NULL);
 	}
 	if (input[read - 1] == '\n')
@@ -45,11 +46,11 @@ int main(int ac,__attribute__ ((unused)) char *argv[], char **env)
 
 		input = get_input();
 		if (input == NULL)
-			exit(1);
+			exit(0);
 		args = argarr(input);
 		child_id =  fork();
 		if (child_id == -1)
-			exit(-1);
+			exit(1);
 
 		if (child_id == 0)
 		{
@@ -59,6 +60,7 @@ int main(int ac,__attribute__ ((unused)) char *argv[], char **env)
 		else
 		{
 			wait(&status);
+			free(args);
 		}
 	}
 	return (0);
