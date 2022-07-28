@@ -46,6 +46,7 @@ int main(int ac,__attribute__ ((unused)) char *argv[], char **env)
 		}
 
 		input = get_input();
+
 		if (input == NULL)
 			exit(0);
 
