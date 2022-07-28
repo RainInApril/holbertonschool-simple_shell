@@ -34,5 +34,5 @@ int _strcmp(char *s1, char *s2);
 char *_getenv(const char *name);
 int _setenv(const char *name, const char *value, int overwrite);
 char **argarr(char *str);
-
+int find_command(char **argv);
 #endif /* _MAIN_H_ */
