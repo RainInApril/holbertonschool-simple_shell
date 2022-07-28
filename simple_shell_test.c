@@ -50,6 +50,8 @@ int main(int ac,__attribute__ ((unused)) char *argv[], char **env)
 			exit(0);
 
 		args = argarr(input);
+		if (args == NULL)
+			exit(0);
 
 		child_id =  fork();
 		if (child_id == -1)
