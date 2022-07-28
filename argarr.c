@@ -16,6 +16,7 @@ char **argarr(char *str)
         token = strtok(str, " ");
 	if (token == NULL)
 	{
+		free(str);
 		return(NULL);
 		exit(0);
 	}
