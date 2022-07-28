@@ -48,7 +48,7 @@ int main(void)
 			exit(-1);
 		if (child_id == 0)
 		{
-			if (execve(argv[0], argv, NULL) == -1)
+			if (execve(argv[0], argv, environ) == -1)
 				exit (1);
 		}
 		else
