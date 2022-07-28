@@ -9,8 +9,6 @@
 int find_command(char **argv)
 {
 	int access_check;
-	path_t *head = NULL;
-	char* path;
 
 	if (*argv[0] == '/')
 	{
