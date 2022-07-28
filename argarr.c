@@ -23,7 +23,7 @@ char **argarr(char *str)
         }
 
         listlen = list_len(head);
-        argv = malloc(sizeof(char *) * listlen);
+        argv = malloc(sizeof(char *) * (listlen + 1));
 
         while (i < listlen)
         {
