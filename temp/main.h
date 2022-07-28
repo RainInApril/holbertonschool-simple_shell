@@ -33,4 +33,5 @@ char *_strdup(const char *str);
 int _strcmp(char *s1, char *s2);
 char *_getenv(const char *name);
 int _setenv(const char *name, const char *value, int overwrite);
+int can_exec(char **argv);
 #endif /* _MAIN_H_ */
