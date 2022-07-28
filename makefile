@@ -5,7 +5,7 @@ CC=gcc
 CFLAGS=-Wall -Werror -Wextra -pedantic -std=gnu89
 RM=rm -rf
 
-TARGET=shell
+TARGET=hsh
 SRC=	_getenv.c \
 	argarr.c \
 	node_func.c \
