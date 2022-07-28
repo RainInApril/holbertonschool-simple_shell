@@ -33,15 +33,29 @@ int main(void)
 {
 	char *input = NULL;
 	char **argv = NULL;
+	pid_t child_id;
+	int status;
 
 	while (isatty(STDIN_FILENO))
 	{
 		write(STDOUT_FILENO, "$ ", 2);
 		input = get_input();
+		if (input == NULL)
+			exit(1);
 		argv = argarr(input);
-		if (execve(argv[0], argv, NULL) == -1)
-			exit (1);
-		free(argv);
+		child_id =  fork();
+		if (child_id == -1)
+			exit(-1);
+		if (child_id == 0)
+		{
+			if (find_command(argv) == 1)
+				exit (1);
+		}
+		else
+		{
+			wait(&status);
+			free(argv);
+		}
 	}
 	return (0);
 }
