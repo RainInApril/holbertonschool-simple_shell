@@ -29,32 +29,36 @@ char *get_input(void)
  * Return: 0 always
  */
 
-int main(void)
+int main(int ac,__attribute__ ((unused)) char *argv[], char **env)
 {
 	char *input = NULL;
-	char **argv = NULL;
+	char **args = NULL;
 	pid_t child_id;
 	int status;
 
-	while (isatty(STDIN_FILENO))
+	while (ac)
 	{
-		write(STDOUT_FILENO, "$ ", 2);
+		if (isatty(STDIN_FILENO))
+		{
+			write(STDOUT_FILENO, "$ ", 2);
+		}
+
 		input = get_input();
 		if (input == NULL)
 			exit(1);
-		argv = argarr(input);
+		args = argarr(input);
 		child_id =  fork();
 		if (child_id == -1)
 			exit(-1);
+
 		if (child_id == 0)
 		{
-			if (execve(argv[0], argv, environ) == -1)
+			if (execve(args[0], args, env) == -1)
 				exit (1);
 		}
 		else
 		{
 			wait(&status);
-			free(argv);
 		}
 	}
 	return (0);
