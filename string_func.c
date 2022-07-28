@@ -47,29 +47,25 @@ int _strcmp(char *s1, char *s2)
 
 char *_strdup(const char *str)
 {
-	char *ptr;
+	char *dest;
 	int i, j;
 
 	if (str == NULL)
-	{
 		return (NULL);
-	}
 
 	i = _strlen(str);
 
-	ptr = malloc(sizeof(char) * i + 1);
-
-	if (ptr == NULL)
-	{
+	dest = malloc(sizeof(*dest) * (i + 1));
+	if (dest == NULL)
 		return (NULL);
-	}
 
 	j = 0;
-
-	while (j < i)
+	while (str[j] != '\0')
 	{
-		ptr[j] = str[j];
-		j = j + 1;
+		dest[j] = str[j];
+		j++;
 	}
-	return (ptr);
+	dest[j] = '\0';
+
+	return (dest);
 }
