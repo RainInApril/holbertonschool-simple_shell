@@ -9,6 +9,8 @@
 int find_command(char **argv)
 {
 	int access_check;
+	path_t *head = NULL;
+	char* path;
 
 	if (*argv[0] == '/')
 	{
@@ -16,11 +18,11 @@ int find_command(char **argv)
 		if (access_check == -1)
 		{
 			perror("Can not access location");
-		} else {
-			printf("location found");
 		}
 	}
+
 
 	return (0);
 
 }
+
