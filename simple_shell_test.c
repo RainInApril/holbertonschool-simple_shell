@@ -36,7 +36,7 @@ int main(int ac,__attribute__ ((unused)) char *argv[], char **env)
 	char *input = NULL;
 	char **args = NULL;
 	pid_t child_id;
-	int status;
+	int status, i;
 
 	while (ac)
 	{
@@ -63,6 +63,13 @@ int main(int ac,__attribute__ ((unused)) char *argv[], char **env)
 		else
 		{
 			wait(&status);
+			i = 0;
+			while (args[i] != NULL)
+			{
+				free(args[i]);
+				i++;
+			}
+			free(args);
 		}
 	}
 	return (0);

@@ -8,7 +8,7 @@
 
 char **argarr(char *str)
 {
-        list_t *head = NULL;
+        list_t *node, *head = NULL;
         char *token;
         char **argv;
         int listlen, i = 0;
@@ -29,12 +29,12 @@ char **argarr(char *str)
 
         listlen = list_len(head);
         argv = malloc(sizeof(char *) * (listlen + 1));
-
+	node = head;
         while (i < listlen)
         {
-                argv[i] = _strdup(head->str);
+                argv[i] = _strdup(node->str);
                 i++;
-                head = head->next;
+                node = node->next;
         }
 	free(token);
         argv[i] = NULL;
