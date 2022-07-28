@@ -8,7 +8,7 @@
 
 int list_len(const list_t *h)
 {
-	size_t count = 0;
+	int count = 0;
 
 	while (h != NULL)
 	{
@@ -77,7 +77,7 @@ list_t *add_node(list_t **head, const char *str)
 	{
 		return (NULL);
 	}
-	new->str = strdup(str);
+	new->str = _strdup(str);
 	if (new->str == NULL)
 		free(new);
 	new->len = _strlen(new->str);

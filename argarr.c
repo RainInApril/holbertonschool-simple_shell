@@ -14,8 +14,13 @@ char **argarr(char *str)
         int listlen, i = 0;
 
         token = strtok(str, " ");
+	if (token == NULL)
+	{
+		return(NULL);
+		exit(0);
+	}
         add_node(&head, token);
-         while (token != NULL)
+	while (token != NULL)
         {
                 token = strtok(NULL, " ");
                 if (token != NULL)
@@ -27,10 +32,11 @@ char **argarr(char *str)
 
         while (i < listlen)
         {
-                argv[i] = strdup(head->str);
+                argv[i] = _strdup(head->str);
                 i++;
                 head = head->next;
         }
+	free(token);
         argv[i] = NULL;
         free_list(head);
         return (argv);
