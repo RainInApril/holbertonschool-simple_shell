@@ -72,6 +72,7 @@ int main(int ac,__attribute__ ((unused)) char *argv[], char **env)
 				i++;
 			}
 			free(args);
+			free(input);
 		}
 	}
 	return (0);
