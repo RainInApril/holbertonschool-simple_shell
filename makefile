@@ -1,14 +1,23 @@
 # Compilation for the hsh simple shell requirements are 
 # gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh
 
-CC = gcc
-SRC = shell.c main.c
-CFLAGS = -g -Wall -Werror -Wextra -pedantic
+CC=gcc
+CFLAGS=-Wall -Werror -Wextra -pedantic -std=gnu89
+RM=rm -rf
+
+TARGET=hsh
+SRC=	_getenv.c \
+	argarr.c \
+	node_func.c \
+	save_path.c \
+	simple_shell_test.c \
+	string_func.c \
+	find_command.c
 
 # shell hsh
 all:
-	$(CC) $(CFLAGS) *.c -o hsh
-	./hsh
+	$(CC) $(CFLAGS) $(SRC) -o $(TARGET)
 
 clean:
-	$(RM) hsh .sshell_logging
+	$(RM) *~ \#*\# \.\#* \
+	$(TARGET)
