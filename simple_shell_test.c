@@ -15,7 +15,7 @@ char *get_input(void)
 	read = getline(&input, &len, stdin);
 	if (read == -1)
 	{
-		write(STDOUT_FILENO, "\n", 1);
+		write(STDERR_FILENO, "\n", 1);
 		return (NULL);
 	}
 	if (input[read - 1] == '\n')
