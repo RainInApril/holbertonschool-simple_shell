@@ -54,6 +54,8 @@ int main(int ac,__attribute__ ((unused)) char *argv[], char **env)
 		if (args == NULL)
 			exit(0);
 
+		if (find_command(argv, env) == -1)
+			exit(0);
 		child_id =  fork();
 		if (child_id == -1)
 			exit(1);
