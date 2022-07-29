@@ -36,5 +36,5 @@ char *_getenv(const char *name);
 int _setenv(const char *name, const char *value, int overwrite);
 char **argarr(char *str);
 int find_command(char **argv);
-int can_exec(char *argv); /* argv[0] will be passsed throug. if true return 1 */ 
+int can_exec(char **argv); /* argv[0] will be passsed throug. if true return 1 */ 
 #endif /* _MAIN_H_ */
