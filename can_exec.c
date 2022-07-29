@@ -2,7 +2,7 @@
 
 /**
  * can_exec - function that  checks if a command is executable
- * @argv: list of arguments
+ * @argv: pathname
  * Return: 0 on success, -1 otherwise
  */
 
@@ -13,10 +13,10 @@ int can_exec(char *argv)
 	if (argv == NULL)
 	{
 		perror("Error : no argument");
-		return (-1)
+		return (-1);
 	}
 /* if the command line starts by / or . Then consider as executable */
-	if (access(argv,F_OK | X_OK) == 1)
+	if (access(argv, F_OK | X_OK) == 0)
 	{
 		return (0);
 	}
