@@ -9,6 +9,7 @@
 
 int fork_exec(char **argv, char **env)
 {
+	int exit_status;
 	pid_t pid = fork();
 
 	if (pid == -1)
@@ -19,22 +20,15 @@ int fork_exec(char **argv, char **env)
 	else if (pid == 0)
 	{
 /* creates the child process */
-		char **argv = argv[0];
-		execve(argv[0], argv, env);
+		if (execve(argv[0], argv, env) == -1)
+			perror("execvpe");
 /* case unsuccess execution */
-		perror("execvpe");
 		return (1);
 	}
 	else
 	{
 /*  parent wait for the child porocess */
-		int exit_status;
-		if (waitpid(pid, &exit_status, 0) == -1)
-		{
-			perror("waitpid");
-			return(1);
-		}
-		printf("error executing the command", exit_status);
+		waitpid(pid, &exit_status, 0);
 	}
 	return (0);
 }
