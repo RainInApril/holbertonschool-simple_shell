@@ -12,7 +12,8 @@ SRC=	_getenv.c \
 	save_path.c \
 	simple_shell_test.c \
 	string_func.c \
-	find_command.c
+	find_command.c \
+	can_exec.c
 
 # shell hsh
 all:
