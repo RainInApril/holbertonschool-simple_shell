@@ -37,7 +37,7 @@ int find_command(char **argv, char **env)
 		_strcat(command, node->str);
 		_strcat(command, argv[0]);
 		/* check command is in PATH */
-		
+
 		node = node->next
 	}
 
