@@ -53,7 +53,7 @@ int main(int ac,__attribute__ ((unused)) char *argv[], char **env)
 		if (args == NULL)
 			exit(0);
 
-		if (check_args(argv, env) == -1)
+		if (check_args(args, env) == -1)
 			exit(0);
 
 		i = 0;
