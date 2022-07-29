@@ -68,3 +68,17 @@ path_t *save_path_end(path_t **head, const char *token)
 	prev->next = new;
 	return (new);
 }
+
+void free_path_list(path_t *head)
+{
+	path_t *temp;
+
+	while (head != NULL)
+	{
+		temp = head;
+		head = temp->next;
+		free(temp->str);
+		free(temp);
+	}
+	free(head);
+}
