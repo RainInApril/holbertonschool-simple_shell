@@ -3,28 +3,22 @@
 /**
  * can_exec - function that  checks if a command is executable
  * @argv: list of arguments
- * Return: 1
+ * Return: 0 on success, -1 otherwise
  */
 
-int can_exec(char **argv)
+int can_exec(char *argv)
 {
-/* define *cmdToExecute as the first arguments passed in the command line */
-	char *cmdToExecute = argv[0];
 
 /* if the first argument of the command line is empty then consider as error */
-	if (argv[0] == NULL)
+	if (argv == NULL)
 	{
 		perror("Error : no argument");
+		return (-1)
 	}
 /* if the command line starts by / or . Then consider as executable */
-	if (cmdToExecute[0] == '/' || cmdToExecute[0] == '.')
+	if (access(argv,F_OK | X_OK) == 1)
 	{
-		if (access(cmdToExecute,F_OK | X_OK) == 1)
-		{
-			free(cmdToExecute);
-			return (1);
-		}
+		return (0);
 	}
-	free(cmdToExecute);
-	return (0);
+	return (-1);
 }
