@@ -54,29 +54,7 @@ int main(int ac,__attribute__ ((unused)) char *argv[], char **env)
 		if (args == NULL)
 			exit(0);
 
-		if (find_command(argv, env) == -1)
+		if (check_args(argv, env) == -1)
 			exit(0);
-		child_id =  fork();
-		if (child_id == -1)
-			exit(1);
-
-		if (child_id == 0)
-		{
-			if (execve(args[0], args, env) == -1)
-				exit (1);
-		}
-		else
-		{
-			wait(&status);
-			i = 0;
-			while (args[i] != NULL)
-			{
-				free(args[i]);
-				i++;
-			}
-			free(args);
-			free(input);
-		}
-	}
 	return (0);
 }
