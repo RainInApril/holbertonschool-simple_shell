@@ -9,6 +9,7 @@
 #include <sys/wait.h>
 #include <limits.h>
 
+extern int errno;
 extern char **environ;
 typedef struct list_s
 {
