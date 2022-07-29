@@ -4,11 +4,12 @@ path_t *create_path_list(path_t *head)
 {
 	char *path = _getenv("PATH");
 	char *token;
-	path_t *node;
 
 	token = strtok(path, "=");
 	token = strtok(NULL, ":");
 	save_path(&head, token);
+	if (head == NULL)
+		return (NULL);
 	while (token != NULL)
 	{
 		token = strtok(NULL, ":");
@@ -17,7 +18,7 @@ path_t *create_path_list(path_t *head)
 	}
 	free(token);
 	free(path);
-	return (node);
+	return (head);
 }
 
 /**
@@ -30,7 +31,7 @@ char *find_command(char *argv)
 {
 	path_t *node, *head = NULL;
 	char *command;
-	int comannd_len, path_len;
+	int command_len, path_len;
 
 	create_path_list(head);
 	if (head == NULL)
@@ -59,13 +60,13 @@ char *find_command(char *argv)
 	return (argv);
 }
 
-int check_args(char **argv,char **env)
+int check_args(char **argv,__attribute__ ((unused)) char **env)
 {
 	char *path = NULL;
 
 	printf("argv[0]: %s\n", argv[0]);
 
-	if (argv[0] == '/' || argv[0] == '.')
+	if (*argv[0] == '/' || *argv[0] == '.')
 	{
 		if (can_exec(argv[0]) == -1)
 		{
@@ -91,7 +92,7 @@ int check_args(char **argv,char **env)
 			argv[0] = path;
 		}
 	}
-	printf("argv: %s", argv);
+	printf("argv: %s", *argv);
 	/* fork_exec(argv, env); */
 	return (0);
 }
