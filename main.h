@@ -30,6 +30,7 @@ void free_path_list(path_t *head);
 int list_len(const list_t *h);
 void free_list(list_t *head);
 int _strlen(const char *s);
+char *_strcpy(char *dest, char *src);
 char *_strcat(char *dest, char *src);
 char *_strdup(const char *str);
 int _strcmp(char *s1, char *s2);
@@ -37,6 +38,6 @@ char *_getenv(const char *name);
 int _setenv(const char *name, const char *value, int overwrite);
 char **argarr(char *str);
 char *find_command(char *argv);
-int can_exec(char **argv);
+int can_exec(char *argv);
 int check_args(char **argv, char **env);
 #endif /* _MAIN_H_ */

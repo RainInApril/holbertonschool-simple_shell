@@ -38,6 +38,23 @@ int _strcmp(char *s1, char *s2)
 		return (0);
 }
 
+
+char *_strcpy(char *dest, char *src)
+{
+	int i = 0;
+
+	/*Copy while check for null operator*/
+	while (src[i] != '\0')
+	{
+		/*Assign the value of each index*/
+		dest[i] = src[i];
+		i++;
+	}
+
+	dest[i] = '\0';
+	return (dest);
+}
+
 /**
  * _strcat - copy the string from src and concatenate it onto dest
  * @dest: dest pointer
