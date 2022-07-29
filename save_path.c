@@ -66,6 +66,7 @@ path_t *save_path_end(path_t **head, const char *token)
 
 	/* once at end assigned new address to created block */
 	prev->next = new;
+
 	return (new);
 }
 
