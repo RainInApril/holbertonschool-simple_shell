@@ -35,8 +35,7 @@ int main(int ac,__attribute__ ((unused)) char *argv[], char **env)
 {
 	char *input = NULL;
 	char **args = NULL;
-	pid_t child_id;
-	int status, i;
+	int i;
 
 	while (ac)
 	{
@@ -56,5 +55,15 @@ int main(int ac,__attribute__ ((unused)) char *argv[], char **env)
 
 		if (check_args(argv, env) == -1)
 			exit(0);
+
+		i = 0;
+		while (args[i] != NULL)
+		{
+			free(args[i]);
+			i++;
+		}
+		free(args);
+		free(input);
+	}
 	return (0);
 }
