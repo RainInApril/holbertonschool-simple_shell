@@ -41,4 +41,5 @@ char **argarr(char *str);
 char *find_command(char *argv);
 int can_exec(char *argv);
 int check_args(char **argv, char **env);
+int fork_exec(char **argv, char **env);
 #endif /* _MAIN_H_ */
