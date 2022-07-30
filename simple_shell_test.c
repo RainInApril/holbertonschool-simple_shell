@@ -47,14 +47,15 @@ int main(int ac,__attribute__ ((unused)) char *argv[], char **env)
 		input = get_input();
 
 		if (input == NULL)
-			exit(0);
+			exit(3);
 
 		args = argarr(input);
 		if (args == NULL)
-			exit(0);
-
-		if (check_args(args, env) == -1)
-			exit(0);
+		{
+			
+		}
+			if (check_args(args, env) == -1)
+				exit(2);
 
 		i = 0;
 		while (args[i] != NULL)
