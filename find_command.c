@@ -75,7 +75,7 @@ int check_args(char **argv,__attribute__ ((unused)) char **env)
 		if (path == NULL)
 		{
 			/* add print_error here */
-			return (-1);
+			return (0);
 		}
 		else if (path == argv[0])
 		{
