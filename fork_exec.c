@@ -4,7 +4,7 @@
  * fork_exec - function that creates a child process
  * @argv: list of arguments
  * @env: environment variables
- *Return: 1 success 0 if error
+ * Return: 0 success 1 if error
  */
 
 int fork_exec(char **argv, char **env)
