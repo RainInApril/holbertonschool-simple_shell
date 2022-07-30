@@ -64,8 +64,8 @@ int check_args(char **argv,__attribute__ ((unused)) char **env)
 	{
 		if (can_exec(argv[0]) == -1)
 		{
-
-			return (-1);
+			/* add print_error here */
+			return (0);
 		}
 	}
 	else
@@ -73,12 +73,16 @@ int check_args(char **argv,__attribute__ ((unused)) char **env)
 		path = find_command(argv[0]);
 
 		if (path == NULL)
+		{
+			/* add print_error here */
 			return (-1);
+		}
 		else if (path == argv[0])
 		{
 			free(path);
 			if (access(argv[0], F_OK | X_OK) != 0)
 			{
+				/* add print_error here */
 				return (0);
 			}
 		}
@@ -87,7 +91,6 @@ int check_args(char **argv,__attribute__ ((unused)) char **env)
 		}
 	}
 	free(path);
-	printf("argv: %s", *argv);
 	fork_exec(argv, env);
 	return (0);
 }
