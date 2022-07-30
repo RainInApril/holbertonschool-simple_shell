@@ -79,7 +79,7 @@ int check_args(char **argv,__attribute__ ((unused)) char **env)
 			free(path);
 			if (access(argv[0], F_OK | X_OK) != 0)
 			{
-				return (-1);
+				return (0);
 			}
 		}
 		else {
@@ -88,6 +88,6 @@ int check_args(char **argv,__attribute__ ((unused)) char **env)
 	}
 	free(path);
 	printf("argv: %s", *argv);
-	/* fork_exec(argv, env); */
+	fork_exec(argv, env);
 	return (0);
 }
