@@ -8,37 +8,37 @@
 
 char **argarr(char *str)
 {
-        list_t *node, *head = NULL;
-        char *token;
-        char **argv;
-        int listlen, i = 0;
+	list_t *node, *head = NULL;
+	char *token;
+	char **argv;
+	int listlen, i = 0;
 
-        token = strtok(str, " ");
+	token = strtok(str, " ");
 	if (token == NULL)
 	{
 		free(str);
-		return(NULL);
+		return (NULL);
 		exit(0);
 	}
-        add_node(&head, token);
+	add_node(&head, token);
 	while (token != NULL)
-        {
-                token = strtok(NULL, " ");
-                if (token != NULL)
-                        add_node_end(&head, token);
-        }
+	{
+		token = strtok(NULL, " ");
+		if (token != NULL)
+			add_node_end(&head, token);
+	}
 
-        listlen = list_len(head);
-        argv = malloc(sizeof(char *) * (listlen + 1));
+	listlen = list_len(head);
+	argv = malloc(sizeof(char *) * (listlen + 1));
 	node = head;
-        while (i < listlen)
-        {
-                argv[i] = _strdup(node->str);
-                i++;
-                node = node->next;
-        }
+	while (i < listlen)
+	{
+		argv[i] = _strdup(node->str);
+		i++;
+		node = node->next;
+	}
 	free(token);
-        argv[i] = NULL;
-        free_list(head);
-        return (argv);
+	argv[i] = NULL;
+	free_list(head);
+	return (argv);
 }
