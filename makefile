@@ -4,6 +4,7 @@
 CC=gcc
 CFLAGS=-Wall -Werror -Wextra -pedantic -std=gnu89
 RM=rm -rf
+BETTY=betty
 
 TARGET=hsh
 SRC=	_getenv.c \
@@ -14,7 +15,8 @@ SRC=	_getenv.c \
 	string_func.c \
 	find_command.c \
 	can_exec.c \
-	fork_exec.c
+	fork_exec.c \
+	print_error.c
 
 # shell hsh
 all:
@@ -23,3 +25,6 @@ all:
 clean:
 	$(RM) *~ \#*\# \.\#* \
 	$(TARGET)
+
+betty:
+	$(BETTY) $(SRC)
