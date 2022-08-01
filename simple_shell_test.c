@@ -52,10 +52,10 @@ int main(int ac,__attribute__ ((unused)) char *argv[], char **env)
 		args = argarr(input);
 		if (args == NULL)
 		{
-			
+			exit(98);
 		}
-			if (check_args(args, env) == -1)
-				exit(2);
+		if (check_args(args, env) == -1)
+			exit(2);
 
 		i = 0;
 		while (args[i] != NULL)
