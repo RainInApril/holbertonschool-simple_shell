@@ -42,4 +42,5 @@ char *find_command(char *argv);
 int can_exec(char *argv);
 int check_args(char **argv, char **env);
 int fork_exec(char **argv, char **env);
+void print_error(char *argv);
 #endif /* _MAIN_H_ */
