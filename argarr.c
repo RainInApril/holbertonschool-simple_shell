@@ -13,7 +13,7 @@ char **argarr(char *str)
         char **argv;
         int listlen, i = 0;
 
-        token = strtok(str, " ");
+        token = strtok(str, " \t\n\r");
 	if (token == NULL)
 	{
 		free(str);
@@ -23,7 +23,7 @@ char **argarr(char *str)
         add_node(&head, token);
 	while (token != NULL)
         {
-                token = strtok(NULL, " ");
+                token = strtok(NULL, " \t\n\r");
                 if (token != NULL)
                         add_node_end(&head, token);
         }

@@ -35,8 +35,7 @@ int main(int ac,__attribute__ ((unused)) char *argv[], char **env)
 {
 	char *input = NULL;
 	char **args = NULL;
-	pid_t child_id;
-	int status, i;
+	int i;
 
 	while (ac)
 	{
@@ -48,35 +47,24 @@ int main(int ac,__attribute__ ((unused)) char *argv[], char **env)
 		input = get_input();
 
 		if (input == NULL)
-			exit(0);
+			exit(3);
 
 		args = argarr(input);
 		if (args == NULL)
-			exit(0);
-
-		if (find_command(argv, env) == -1)
-			exit(0);
-		child_id =  fork();
-		if (child_id == -1)
-			exit(1);
-
-		if (child_id == 0)
 		{
-			if (execve(args[0], args, env) == -1)
-				exit (1);
+			exit(98);
 		}
-		else
+		if (check_args(args, env) == -1)
+			exit(2);
+
+		i = 0;
+		while (args[i] != NULL)
 		{
-			wait(&status);
-			i = 0;
-			while (args[i] != NULL)
-			{
-				free(args[i]);
-				i++;
-			}
-			free(args);
-			free(input);
+			free(args[i]);
+			i++;
 		}
+		free(args);
+		free(input);
 	}
 	return (0);
 }
