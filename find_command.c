@@ -37,7 +37,7 @@ char *find_command(char *argv)
 	while (node != NULL)
 	{
 		path_len = _strlen(node->str);
-		command = malloc(sizeof(char) * (command_len + path_len) + 2);
+		command = malloc(sizeof(char) * (command_len + path_len + 2));
 		_strcpy(command, node->str);
 		_strcat(command, "/");
 		_strcat(command, argv);
