@@ -39,7 +39,7 @@ char *_strdup(const char *str);
 int _strcmp(char *s1, char *s2);
 char *_getenv(const char *name);
 int _setenv(const char *name, const char *value, int overwrite);
-char **argarr(char *str);
+int argarr(char **args, char *str);
 char *find_command(char *argv);
 int can_exec(char *argv);
 int check_args(char **argv, char **env);
