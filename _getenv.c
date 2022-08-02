@@ -25,7 +25,6 @@ char *_getenv(const char *name)
 		}
 		if (match == 0)
 		{
-			free(curr_env);
 			return (environ[i]);
 		}
 		i++;
