@@ -50,10 +50,10 @@ int main(int ac,__attribute__ ((unused)) char *argv[], char **env)
 			exit(0);
 
 		args = argarr(input);
+		free(input);
 		if (args == NULL)
-		{
 			exit(0);
-		}
+
 		if (check_args(args, env) == -1)
 			exit(0);
 
@@ -64,7 +64,6 @@ int main(int ac,__attribute__ ((unused)) char *argv[], char **env)
 			i++;
 		}
 		free(args);
-		free(input);
 	}
 	return (0);
 }
