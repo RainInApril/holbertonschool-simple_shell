@@ -11,6 +11,7 @@
 
 extern int errno;
 extern char **environ;
+
 typedef struct list_s
 {
 	char *str;
@@ -23,6 +24,7 @@ typedef struct path_s
 	char *str;
 	struct path_s *next;
 } path_t;
+
 list_t *add_node(list_t **head, const char *str);
 list_t *add_node_end(list_t **head, const char *str);
 path_t *save_path(path_t **head, char *token);
