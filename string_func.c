@@ -95,14 +95,14 @@ char *_strcat(char *dest, char *src)
 char *_strdup(const char *str)
 {
 	char *dest;
-	int i, j;
+	int len, j;
 
 	if (str == NULL)
 		return (NULL);
 
-	i = _strlen(str);
+	len = _strlen(str) + 1;
 
-	dest = malloc((sizeof(char) * i) + 1);
+	dest = malloc(sizeof(char) * len);
 	if (dest == NULL)
 		return (NULL);
 
@@ -112,6 +112,7 @@ char *_strdup(const char *str)
 		dest[j] = str[j];
 		j++;
 	}
+
 	dest[j] = '\0';
 
 	return (dest);
