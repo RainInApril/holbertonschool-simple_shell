@@ -26,6 +26,6 @@
 
 ## Authors ##
 
-> Gem Phan
-> Luke Hackett
+> Gem Phan,
+> Luke Hackett,
 > Karren Nonyta
