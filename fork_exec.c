@@ -21,7 +21,7 @@ int fork_exec(char **argv, char **env)
 	{
 /* creates the child process */
 		if (execve(argv[0], argv, env) == -1)
-			perror("execvpe");
+			perror("execve");
 /* case unsuccess execution */
 		return (1);
 	}
