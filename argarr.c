@@ -10,16 +10,13 @@ char **argarr(char *str)
 {
         list_t *node, *head = NULL;
         char *token;
-        char **argv;
+	char **argv = NULL;
         int listlen, i = 0;
 
         token = strtok(str, " \t\n\r");
 	if (token == NULL)
-	{
-		free(str);
 		return(NULL);
-		exit(0);
-	}
+
         add_node(&head, token);
 	while (token != NULL)
         {
@@ -28,17 +25,19 @@ char **argarr(char *str)
                         add_node_end(&head, token);
         }
 
-        listlen = list_len(head);
-        argv = malloc(sizeof(char *) * (listlen + 1));
+	listlen = list_len(head);
+
+	argv = malloc(sizeof(char *) * (listlen + 1));
 	node = head;
-        while (i < listlen)
+	while (i < listlen)
         {
                 argv[i] = _strdup(node->str);
                 i++;
                 node = node->next;
-        }
+	}
+	argv[i] = NULL;
 	free(token);
-        argv[i] = NULL;
+	free(node);
         free_list(head);
         return (argv);
 }
