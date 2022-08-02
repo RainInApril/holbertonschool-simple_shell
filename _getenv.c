@@ -24,7 +24,9 @@ char *_getenv(const char *name)
 			j++;
 		}
 		if (match == 0)
+		{
 			return (environ[i]);
+		}
 		i++;
 	}
 

@@ -2,12 +2,12 @@
 # gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh
 
 CC=gcc
-CFLAGS=-Wall -Werror -Wextra -pedantic -std=gnu89
+CFLAGS=-Wall -Werror -Wextra -pedantic -std=gnu89 -g
 RM=rm -rf
 BETTY=betty
 
 TARGET=hsh
-SRC=	_getenv.c \
+SRC0=	_getenv.c \
 	argarr.c \
 	node_func.c \
 	save_path.c \
@@ -18,9 +18,18 @@ SRC=	_getenv.c \
 	fork_exec.c \
 	print_error.c
 
+SRC1=	string_func.c \
+	temp/main.c \
+	argarr.c \
+	node_func.c
 # shell hsh
-all:
-	$(CC) $(CFLAGS) $(SRC) -o $(TARGET)
+all: 0 1
+
+0:
+	$(CC) $(CFLAGS) $(SRC0) -o $(TARGET)
+
+1:
+	$(CC) $(CFLAGS) $(SRC1) -o $(TARGET)
 
 clean:
 	$(RM) *~ \#*\# \.\#* \

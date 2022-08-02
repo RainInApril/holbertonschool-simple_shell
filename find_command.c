@@ -28,7 +28,7 @@ path_t **create_path_list(path_t **head)
 char *find_command(char *argv)
 {
 	path_t *node, *head = NULL;
-	char *command;
+	char *command = NULL;
 	int command_len, path_len;
 
 	create_path_list(&head);
@@ -86,11 +86,12 @@ int check_args(char **argv,__attribute__ ((unused)) char **env)
 				return (0);
 			}
 		}
-		else {
-			_strcpy(argv[0], path);
+		else
+		{
+			argv[0] = _strdup(path);
+			free(path);
 		}
 	}
-	free(path);
 	fork_exec(argv, env);
 	return (0);
 }
