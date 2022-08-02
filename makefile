@@ -31,6 +31,9 @@ all: 0 1
 1:
 	$(CC) $(CFLAGS) $(SRC1) -o $(TARGET)
 
+2:
+	$(CC) -g $(SRC0) -o $(TARGET)
+
 clean:
 	$(RM) *~ \#*\# \.\#* \
 	$(TARGET)

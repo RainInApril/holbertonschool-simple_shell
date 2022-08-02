@@ -48,9 +48,10 @@ char *find_command(char *argv)
 			free_path_list(head);
 			return (command);
 		}
+		free(command);
 		node = node->next;
 	}
-	free(command);
+
 	free_path_list(head);
 	return (argv);
 }
@@ -79,7 +80,6 @@ int check_args(char **argv,__attribute__ ((unused)) char **env)
 		}
 		else if (path == argv[0])
 		{
-			free(path);
 			if (access(argv[0], F_OK | X_OK) != 0)
 			{
 				/* add print_error here */
@@ -88,10 +88,11 @@ int check_args(char **argv,__attribute__ ((unused)) char **env)
 		}
 		else
 		{
-			argv[0] = _strdup(path);
-			free(path);
+			argv[0] = path;
 		}
 	}
 	fork_exec(argv, env);
+	if (argv[0] == path)
+		free(argv[0]);
 	return (0);
 }

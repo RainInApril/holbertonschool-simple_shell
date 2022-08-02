@@ -34,8 +34,8 @@ char *get_input(void)
 int main(int ac,__attribute__ ((unused)) char *argv[], char **env)
 {
 	char *input = NULL;
-	char **args = NULL;
-	int i;
+	char *args[64];
+/*	int i; */
 
 	while (ac)
 	{
@@ -49,21 +49,20 @@ int main(int ac,__attribute__ ((unused)) char *argv[], char **env)
 		if (input == NULL)
 			exit(0);
 
-		args = argarr(input);
+		if (argarr(args, input) == 0)
+		{
+			if (check_args(args, env) == -1)
+				exit(0);
+		}
 		free(input);
-		if (args == NULL)
-			exit(0);
-
-		if (check_args(args, env) == -1)
-			exit(0);
-
+/*
 		i = 0;
 		while (args[i] != NULL)
 		{
 			free(args[i]);
 			i++;
 		}
-		free(args);
+		free(args);*/
 	}
 	return (0);
 }
