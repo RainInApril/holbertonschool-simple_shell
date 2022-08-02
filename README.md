@@ -26,6 +26,6 @@
 
 ## Authors ##
 
-> Gem Phan > Luke Hackett > Karren Nonyta
-
-https://cdn.dribbble.com/users/2103338/screenshots/7155620/media/9d18c0a6bd6268556dc57d07a3a902fe.gif
+> Gem Phan
+> Luke Hackett
+> Karren Nonyta
