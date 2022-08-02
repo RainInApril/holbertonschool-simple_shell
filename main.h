@@ -9,7 +9,9 @@
 #include <sys/wait.h>
 #include <limits.h>
 
+extern int errno;
 extern char **environ;
+
 typedef struct list_s
 {
 	char *str;
@@ -22,18 +24,25 @@ typedef struct path_s
 	char *str;
 	struct path_s *next;
 } path_t;
+
 list_t *add_node(list_t **head, const char *str);
 list_t *add_node_end(list_t **head, const char *str);
 path_t *save_path(path_t **head, char *token);
 path_t *save_path_end(path_t **head, const char *token);
+void free_path_list(path_t *head);
 int list_len(const list_t *h);
 void free_list(list_t *head);
 int _strlen(const char *s);
+char *_strcpy(char *dest, char *src);
+char *_strcat(char *dest, char *src);
 char *_strdup(const char *str);
 int _strcmp(char *s1, char *s2);
 char *_getenv(const char *name);
 int _setenv(const char *name, const char *value, int overwrite);
 char **argarr(char *str);
-int find_command(char **argv);
-int can_exec(char **argv); /* argv[0] will be passsed throug. if true return 1 */ 
+char *find_command(char *argv);
+int can_exec(char *argv);
+int check_args(char **argv, char **env);
+int fork_exec(char **argv, char **env);
+void print_error(char *argv);
 #endif /* _MAIN_H_ */

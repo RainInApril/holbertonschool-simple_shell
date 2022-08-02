@@ -2,3 +2,10 @@
 /bin/ls
 /bin/ls
 /bin/ls
+
+/bin/ls /tmp
+/bin/ls /var
+
+ls -la
+ls                     ls ls ls
+ls -la /tmp
