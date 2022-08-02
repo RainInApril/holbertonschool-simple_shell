@@ -1,5 +1,4 @@
 #include "main.h"
-#include <stdio.h>
 
 /**
  * _strlen - returns the length of a string
@@ -43,6 +42,8 @@ char *_strcpy(char *dest, char *src)
 {
 	int i = 0;
 
+	if (src == NULL || *src == '\0')
+		return (NULL);
 	/*Copy while check for null operator*/
 	while (src[i] != '\0')
 	{
@@ -66,7 +67,6 @@ char *_strcat(char *dest, char *src)
 {
 	int i = 0, len;
 
-	printf("dest: %s\n src: %s\n", dest, src);
 	if (dest == NULL)
 		return (NULL);
 
@@ -102,7 +102,7 @@ char *_strdup(const char *str)
 
 	i = _strlen(str);
 
-	dest = malloc(sizeof(*dest) * (i + 1));
+	dest = malloc((sizeof(char) * i) + 1);
 	if (dest == NULL)
 		return (NULL);
 
