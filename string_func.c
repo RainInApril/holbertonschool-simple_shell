@@ -66,6 +66,7 @@ char *_strcat(char *dest, char *src)
 {
 	int i = 0, len;
 
+	printf("dest: %s\n src: %s\n", dest, src);
 	if (dest == NULL)
 		return (NULL);
 
