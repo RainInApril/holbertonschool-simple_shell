@@ -25,7 +25,7 @@ int list_len(const list_t *h)
  *Return: pointer to node
  */
 
-list_t *add_node_end(list_t **head, const char *str)
+list_t *add_node_end(list_t **head, char *str)
 {
 	list_t *new;
 	list_t *prev;
@@ -70,7 +70,7 @@ list_t *add_node_end(list_t **head, const char *str)
  *Return: pointer to node
  */
 
-list_t *add_node(list_t **head, const char *str)
+list_t *add_node(list_t **head, char *str)
 {
 	list_t *new;
 	list_t *prev;

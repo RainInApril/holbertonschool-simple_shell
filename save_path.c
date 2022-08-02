@@ -35,7 +35,7 @@ path_t *save_path(path_t **head, char *token)
  * Return: pointer to start of list.
  */
 
-path_t *save_path_end(path_t **head, const char *token)
+path_t *save_path_end(path_t **head, char *token)
 {
 	path_t *new;
 	path_t *prev;

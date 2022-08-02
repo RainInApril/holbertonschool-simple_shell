@@ -6,7 +6,7 @@
  * Return: returns the length of a string
  */
 
-int _strlen(const char *s)
+int _strlen(char *s)
 {
 	int len = 0;
 
@@ -92,7 +92,7 @@ char *_strcat(char *dest, char *src)
  * Return: returns a pointer
  */
 
-char *_strdup(const char *str)
+char *_strdup(char *str)
 {
 	char *dest;
 	int len, j;
