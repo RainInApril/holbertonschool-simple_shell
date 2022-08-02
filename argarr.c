@@ -31,7 +31,7 @@ char **argarr(char *str)
 	node = head;
 	while (i < listlen)
         {
-                argv[i] = _strdup(node->str);
+                argv[i] = strdup(node->str);
                 i++;
                 node = node->next;
 	}
