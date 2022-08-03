@@ -1,3 +1,5 @@
+#include "main.h"
+
 /**
  * builtin - function to handle builtins
  * @argv: array of strings
@@ -8,7 +10,6 @@ int builtin(char **argv)
 {
 	if (_strcmp("exit", argv[0]) == 0)
 	{
-		free(argv)
 		exit(0);
 	}
 
