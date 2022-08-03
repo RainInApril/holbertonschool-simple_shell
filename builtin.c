@@ -14,5 +14,11 @@ int builtin(char *input, char **argv)
 		exit(0);
 	}
 
+	if (_strcmp("env", argv[0]) == 0)
+	{
+		_env();
+		return (0);
+	}
+
 	return (1);
 }

@@ -18,6 +18,7 @@ SRC0=	_getenv.c \
 	fork_exec.c \
 	print_error.c \
 	builtin.c \
+	_env.c
 
 SRC1=	string_func.c \
 	temp/main.c \
