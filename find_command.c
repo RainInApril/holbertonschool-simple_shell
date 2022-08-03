@@ -103,7 +103,7 @@ int check_args(char *input, char **argv, char *name, char **env, int i)
 			{
 				print_error(argv[0], name, i);
 				free(input);
-				exit(127);
+				exit(errno);
 			}
 		}
 		else
