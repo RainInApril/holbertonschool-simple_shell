@@ -56,11 +56,11 @@ char *find_command(char *argv)
 	return (argv);
 }
 
-int check_args(char **argv,char *name, char **env, int i)
+int check_args(char *input, char **argv,char *name, char **env, int i)
 {
 	char *path = NULL;
 
-	if (builtin(argv) == 0)
+	if (builtin(input, argv) == 0)
 	{
 		return (0);
 	}
