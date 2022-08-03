@@ -82,6 +82,7 @@ int check_args(char **argv,char *name, char **env, int i)
 			if (access(argv[0], F_OK | X_OK) != 0)
 			{
 				print_error(argv[0], name, i);
+				exit(127);
 				return (0);
 			}
 		}
