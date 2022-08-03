@@ -41,6 +41,7 @@ int main(int ac, char *argv[], char **env)
 	char *name = argv[0];
 	int i = 0;
 
+	signal(SIGINT, ctrlc);
 	while (ac)
 	{
 		i++;

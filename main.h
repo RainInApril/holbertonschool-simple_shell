@@ -37,4 +37,5 @@ int fork_exec(char **argv, char **env);
 void print_error(char *argv, char *name, int i);
 int builtin(char *input, char **argv);
 void _env(void);
+void ctrlc(int signal);
 #endif /* _MAIN_H_ */

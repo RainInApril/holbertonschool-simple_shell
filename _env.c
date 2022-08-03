@@ -18,3 +18,13 @@ void _env(void)
 		i++;
 	}
 }
+/**
+ *ctrlc - intercepts ctrlc command
+ *@signal: signal
+ *Return: nothing
+ */
+void ctrlc(int signal)
+{
+	(void)signal;
+	write(STDOUT_FILENO, "\n$ ", 5);
+}
