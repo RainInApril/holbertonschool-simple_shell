@@ -77,3 +77,9 @@ Exit program and return to the original shell
 #shell$ exit
 (terminal)$
 ```
+
+## Authors ##
+
+* Gem Phan
+* Luke Hackett
+* Karren Nonyta
