@@ -56,16 +56,15 @@ char *find_command(char *argv)
 	return (argv);
 }
 
-int check_args(char **argv,__attribute__ ((unused)) char **env)
+int check_args(char **argv,char *name, char **env, int i)
 {
 	char *path = NULL;
-
 
 	if (*argv[0] == '/')
 	{
 		if (can_exec(argv[0]) == -1)
 		{
-			/* add print_error here */
+			print_error(argv[0], name, i);
 			return (0);
 		}
 	}
@@ -75,14 +74,14 @@ int check_args(char **argv,__attribute__ ((unused)) char **env)
 
 		if (path == NULL)
 		{
-			/* add print_error here */
+			print_error(argv[0], name, i);
 			return (0);
 		}
 		else if (path == argv[0])
 		{
 			if (access(argv[0], F_OK | X_OK) != 0)
 			{
-				/* add print_error here */
+				print_error(argv[0], name, i);
 				return (0);
 			}
 		}

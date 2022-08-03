@@ -31,14 +31,16 @@ char *get_input(void)
  * Return: 0 always
  */
 
-int main(int ac,__attribute__ ((unused)) char *argv[], char **env)
+int main(int ac, char *argv[], char **env)
 {
 	char *input = NULL;
 	char *args[64];
-/*	int i; */
+	char *name = argv[0];
+	int i = 0;
 
 	while (ac)
 	{
+		i++;
 		if (isatty(STDIN_FILENO))
 		{
 			write(STDOUT_FILENO, "$ ", 2);
@@ -51,18 +53,10 @@ int main(int ac,__attribute__ ((unused)) char *argv[], char **env)
 
 		if (argarr(args, input) == 0)
 		{
-			if (check_args(args, env) == -1)
+			if (check_args(args, name, env, i) == -1)
 				exit(0);
 		}
 		free(input);
-/*
-		i = 0;
-		while (args[i] != NULL)
-		{
-			free(args[i]);
-			i++;
-		}
-		free(args);*/
 	}
 	return (0);
 }
