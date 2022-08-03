@@ -45,4 +45,5 @@ int can_exec(char *argv);
 int check_args(char **argv, char *name, char **env, int i);
 int fork_exec(char **argv, char **env);
 void print_error(char *argv, char *name, int i);
+int builtin(char **argv);
 #endif /* _MAIN_H_ */

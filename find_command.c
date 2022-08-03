@@ -60,6 +60,10 @@ int check_args(char **argv,char *name, char **env, int i)
 {
 	char *path = NULL;
 
+	if (builtin(argv) == 0)
+	{
+		return (0);
+	}
 	if (*argv[0] == '/' || *argv[0] == '.')
 	{
 		if (can_exec(argv[0]) == -1)
