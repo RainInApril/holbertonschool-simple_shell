@@ -3,6 +3,7 @@
 /**
  * builtin - function to handle builtins
  * @argv: array of strings
+ * @input: string from getline
  * Return: 1 if no matches
  */
 

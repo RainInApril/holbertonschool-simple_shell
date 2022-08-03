@@ -28,7 +28,9 @@ char *get_input(void)
 
 /**
  * main - test of saving linked list item
- *
+ * @ac: count of args passed through
+ * @argv: args passed through
+ * @env: environment variables passed through
  * Return: 0 always
  */
 
