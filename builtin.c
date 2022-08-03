@@ -12,8 +12,6 @@ int builtin(char *input, char **argv)
 	if (_strcmp("exit", argv[0]) == 0)
 	{
 		free(input);
-		if (errno)
-			exit(errno);
 		exit(0);
 	}
 
