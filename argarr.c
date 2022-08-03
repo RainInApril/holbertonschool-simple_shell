@@ -2,13 +2,14 @@
 
 /**
  * argarr - initialises an array of pointers
+ * @args: array to store the token in
  * @str: string to be broken into pointers
- * Return: char **
+ * Return: 0 on success, 1 on failure
  */
 
 int argarr(char **args, char *str)
 {
-        int i = 0;
+	int i = 0;
 	char *token;
 
 	token = strtok(str, " \t\n\r");
