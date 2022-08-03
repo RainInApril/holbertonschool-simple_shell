@@ -25,7 +25,7 @@ int list_len(const list_t *h)
  *Return: pointer to node
  */
 
-list_t *add_node_end(list_t **head, const char *str)
+list_t *add_node_end(list_t **head, char *str)
 {
 	list_t *new;
 	list_t *prev;
@@ -39,7 +39,11 @@ list_t *add_node_end(list_t **head, const char *str)
 	}
 	new->str = _strdup(str);
 	if (new->str == NULL)
+	{
 		free(new);
+		return (NULL);
+	}
+
 	new->len = _strlen(new->str);
 	new->next = NULL;
 
@@ -66,7 +70,7 @@ list_t *add_node_end(list_t **head, const char *str)
  *Return: pointer to node
  */
 
-list_t *add_node(list_t **head, const char *str)
+list_t *add_node(list_t **head, char *str)
 {
 	list_t *new;
 	list_t *prev;
@@ -79,7 +83,10 @@ list_t *add_node(list_t **head, const char *str)
 	}
 	new->str = _strdup(str);
 	if (new->str == NULL)
+	{
 		free(new);
+		return (NULL);
+	}
 	new->len = _strlen(new->str);
 	new->next = prev;
 	*head = new;
@@ -101,7 +108,6 @@ void free_list(list_t *head)
 	{
 		temp = head;
 		head = temp->next;
-		free(temp->str);
 		free(temp);
 	}
 	free(head);

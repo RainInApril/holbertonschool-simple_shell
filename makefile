@@ -16,12 +16,13 @@ SRC0=	_getenv.c \
 	find_command.c \
 	can_exec.c \
 	fork_exec.c \
-	print_error.c
+	print_error.c \
+	builtin.c \
 
 SRC1=	string_func.c \
 	temp/main.c \
 	argarr.c \
-	node_func.c
+	node_func.c \
 # shell hsh
 all: 0 1
 
@@ -31,9 +32,12 @@ all: 0 1
 1:
 	$(CC) $(CFLAGS) $(SRC1) -o $(TARGET)
 
+2:
+	$(CC) -g $(SRC0) -o $(TARGET)
+
 clean:
 	$(RM) *~ \#*\# \.\#* \
 	$(TARGET)
 
 betty:
-	$(BETTY) $(SRC)
+	$(BETTY) $(SRC0)

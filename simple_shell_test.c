@@ -10,9 +10,10 @@ char *get_input(void)
 {
 	char *input = NULL;
 	size_t len = 0;
-	ssize_t read = 0;
+	ssize_t read;
 
 	read = getline(&input, &len, stdin);
+
 	if (read == -1)
 	{
 		free(input);
@@ -31,14 +32,16 @@ char *get_input(void)
  * Return: 0 always
  */
 
-int main(int ac,__attribute__ ((unused)) char *argv[], char **env)
+int main(int ac, char *argv[], char **env)
 {
 	char *input = NULL;
-	char **args = NULL;
-	int i;
+	char *args[64];
+	char *name = argv[0];
+	int i = 0;
 
 	while (ac)
 	{
+		i++;
 		if (isatty(STDIN_FILENO))
 		{
 			write(STDOUT_FILENO, "$ ", 2);
@@ -49,21 +52,12 @@ int main(int ac,__attribute__ ((unused)) char *argv[], char **env)
 		if (input == NULL)
 			exit(0);
 
-		args = argarr(input);
-		free(input);
-		if (args == NULL)
-			exit(0);
-
-		if (check_args(args, env) == -1)
-			exit(0);
-
-		i = 0;
-		while (args[i] != NULL)
+		if (argarr(args, input) == 0)
 		{
-			free(args[i]);
-			i++;
+			if (check_args(input, args, name, env, i) == -1)
+				exit(0);
 		}
-		free(args);
+		free(input);
 	}
 	return (0);
 }

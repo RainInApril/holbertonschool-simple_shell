@@ -48,23 +48,28 @@ char *find_command(char *argv)
 			free_path_list(head);
 			return (command);
 		}
+		free(command);
 		node = node->next;
 	}
-	free(command);
+
 	free_path_list(head);
 	return (argv);
 }
 
-int check_args(char **argv,__attribute__ ((unused)) char **env)
+int check_args(char *input, char **argv,char *name, char **env, int i)
 {
 	char *path = NULL;
 
-
-	if (*argv[0] == '/')
+	if (builtin(input, argv) == 0)
+	{
+		return (0);
+	}
+	if (*argv[0] == '/' || *argv[0] == '.')
 	{
 		if (can_exec(argv[0]) == -1)
 		{
-			/* add print_error here */
+			print_error(argv[0], name, i);
+			free(input);
 			return (0);
 		}
 	}
@@ -74,24 +79,26 @@ int check_args(char **argv,__attribute__ ((unused)) char **env)
 
 		if (path == NULL)
 		{
-			/* add print_error here */
+			print_error(argv[0], name, i);
 			return (0);
 		}
 		else if (path == argv[0])
 		{
-			free(path);
 			if (access(argv[0], F_OK | X_OK) != 0)
 			{
-				/* add print_error here */
+				print_error(argv[0], name, i);
+				free(input);
+				exit(127);
 				return (0);
 			}
 		}
 		else
 		{
-			argv[0] = _strdup(path);
-			free(path);
+			argv[0] = path;
 		}
 	}
 	fork_exec(argv, env);
+	if (argv[0] == path)
+		free(argv[0]);
 	return (0);
 }
