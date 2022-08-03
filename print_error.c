@@ -37,5 +37,5 @@ void print_error(char *argv, char *name, int i)
 
 	write(STDERR_FILENO, ": ", 2);
 	write(STDERR_FILENO, argv, arg_len);
-	write(STDERR_FILENO, ": not found\n", 13);
+	write(STDERR_FILENO, ": not found\n", 12);
 }
