@@ -70,6 +70,12 @@ path_t *save_path_end(path_t **head, char *token)
 	return (new);
 }
 
+/**
+ * free_path_list - frees a linked list of path_t
+ * @head: pointer to start of linked list
+ * Return: void
+ */
+
 void free_path_list(path_t *head)
 {
 	path_t *temp;

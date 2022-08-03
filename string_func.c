@@ -38,6 +38,13 @@ int _strcmp(char *s1, char *s2)
 }
 
 
+/**
+ * _strcpy - copies one string into another
+ * @dest: pointer to dest string
+ * @src:string to be copied into dest
+ * Return: pointter to string
+ */
+
 char *_strcpy(char *dest, char *src)
 {
 	int i = 0;

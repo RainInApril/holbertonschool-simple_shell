@@ -3,6 +3,7 @@
 /**
  * builtin - function to handle builtins
  * @argv: array of strings
+ * @input: string from getline
  * Return: 1 if no matches
  */
 
@@ -12,6 +13,12 @@ int builtin(char *input, char **argv)
 	{
 		free(input);
 		exit(0);
+	}
+
+	if (_strcmp("env", argv[0]) == 0)
+	{
+		_env();
+		return (0);
 	}
 
 	return (1);

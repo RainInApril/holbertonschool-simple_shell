@@ -9,15 +9,15 @@ BETTY=betty
 TARGET=hsh
 SRC0=	_getenv.c \
 	argarr.c \
-	node_func.c \
 	save_path.c \
-	simple_shell_test.c \
+	shell.c \
 	string_func.c \
 	find_command.c \
 	can_exec.c \
 	fork_exec.c \
 	print_error.c \
 	builtin.c \
+	_env.c
 
 SRC1=	string_func.c \
 	temp/main.c \
