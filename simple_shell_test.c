@@ -10,9 +10,10 @@ char *get_input(void)
 {
 	char *input = NULL;
 	size_t len = 0;
-	ssize_t read = 0;
+	ssize_t read;
 
 	read = getline(&input, &len, stdin);
+
 	if (read == -1)
 	{
 		free(input);
@@ -53,7 +54,7 @@ int main(int ac, char *argv[], char **env)
 
 		if (argarr(args, input) == 0)
 		{
-			if (check_args(args, name, env, i) == -1)
+			if (check_args(input, args, name, env, i) == -1)
 				exit(0);
 		}
 		free(input);

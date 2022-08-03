@@ -56,11 +56,11 @@ char *find_command(char *argv)
 	return (argv);
 }
 
-int check_args(char **argv,char *name, char **env, int i)
+int check_args(char *input, char **argv,char *name, char **env, int i)
 {
 	char *path = NULL;
 
-	if (builtin(argv) == 0)
+	if (builtin(input, argv) == 0)
 	{
 		return (0);
 	}
@@ -69,6 +69,7 @@ int check_args(char **argv,char *name, char **env, int i)
 		if (can_exec(argv[0]) == -1)
 		{
 			print_error(argv[0], name, i);
+			free(input);
 			return (0);
 		}
 	}
@@ -86,6 +87,7 @@ int check_args(char **argv,char *name, char **env, int i)
 			if (access(argv[0], F_OK | X_OK) != 0)
 			{
 				print_error(argv[0], name, i);
+				free(input);
 				exit(127);
 				return (0);
 			}

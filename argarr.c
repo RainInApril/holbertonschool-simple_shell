@@ -26,6 +26,5 @@ int argarr(char **args, char *str)
 	}
 
 	args[i] = NULL;
-
 	return (0);
 }

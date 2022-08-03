@@ -42,8 +42,8 @@ int _setenv(const char *name, const char *value, int overwrite);
 int argarr(char **args, char *str);
 char *find_command(char *argv);
 int can_exec(char *argv);
-int check_args(char **argv, char *name, char **env, int i);
+int check_args(char *input, char **argv, char *name, char **env, int i);
 int fork_exec(char **argv, char **env);
 void print_error(char *argv, char *name, int i);
-int builtin(char **argv);
+int builtin(char *input, char **argv);
 #endif /* _MAIN_H_ */
