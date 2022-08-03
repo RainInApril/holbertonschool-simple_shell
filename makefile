@@ -10,7 +10,7 @@ TARGET=hsh
 SRC0=	_getenv.c \
 	argarr.c \
 	save_path.c \
-	simple_shell_test.c \
+	shell.c \
 	string_func.c \
 	find_command.c \
 	can_exec.c \
