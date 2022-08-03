@@ -6,8 +6,6 @@
 
 int builtin(char **argv)
 {
-	int result;
-
 	if (_strcmp("exit", argv[0]) == 0)
 	{
 		free(argv)
