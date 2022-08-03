@@ -10,9 +10,10 @@ char *get_input(void)
 {
 	char *input = NULL;
 	size_t len = 0;
-	ssize_t read = 0;
+	ssize_t read;
 
 	read = getline(&input, &len, stdin);
+
 	if (read == -1)
 	{
 		free(input);
