@@ -9,12 +9,12 @@
  * Return: void
  */
 
-void print_error(char *argv, char *name, int i);
+void print_error(char *argv, char *name, int i)
 {
 	int name_len, arg_len;
 	char count[3];
 
-	name_lem = _strlen(name);
+	name_len = _strlen(name);
 	arg_len = _strlen(argv);
 	if (i < 10)
 	{
@@ -23,19 +23,19 @@ void print_error(char *argv, char *name, int i);
 	}
 	else
 	{
-		count[0] = i / 10;
-		count[1] = i % 10;
+		count[0] = i / 10 + '0';
+		count[1] = i % 10 + '0';
 		count[2] = '\0';
 	}
 
 	write(STDERR_FILENO, name, name_len);
 	write(STDERR_FILENO, ": ", 2);
-	if (count < 10)
+	if (i < 10)
 		write(STDERR_FILENO, count, 1);
 	else
 		write(STDERR_FILENO, count, 2);
 
 	write(STDERR_FILENO, ": ", 2);
 	write(STDERR_FILENO, argv, arg_len);
-	write(STDERR_FILENO, ": not found", 13);
+	write(STDERR_FILENO, ": not found\n", 13);
 }
