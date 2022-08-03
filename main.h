@@ -13,26 +13,15 @@
 extern int errno;
 extern char **environ;
 
-typedef struct list_s
-{
-	char *str;
-	unsigned int len;
-	struct list_s *next;
-} list_t;
-
 typedef struct path_s
 {
 	char *str;
 	struct path_s *next;
 } path_t;
 
-list_t *add_node(list_t **head, char *str);
-list_t *add_node_end(list_t **head, char *str);
 path_t *save_path(path_t **head, char *token);
 path_t *save_path_end(path_t **head, char *token);
 void free_path_list(path_t *head);
-int list_len(const list_t *h);
-void free_list(list_t *head);
 int _strlen(char *s);
 char *_strcpy(char *dest, char *src);
 char *_strcat(char *dest, char *src);
