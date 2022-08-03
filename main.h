@@ -22,8 +22,6 @@ typedef struct path_s
 path_t *save_path(path_t **head, char *token);
 path_t *save_path_end(path_t **head, char *token);
 void free_path_list(path_t *head);
-int list_len(const list_t *h);
-void free_list(list_t *head);
 int _strlen(char *s);
 char *_strcpy(char *dest, char *src);
 char *_strcat(char *dest, char *src);
