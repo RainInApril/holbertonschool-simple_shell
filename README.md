@@ -36,7 +36,7 @@ This project is a simple UNIX shell to read and call the bassic commands from a 
 The simple shell should work like this in interactive mode:
 ```
 $ ./hsh
-($) /bin/ls
+($) ls
 hsh main.c shell.c
 ($)
 ($) exit
@@ -61,7 +61,7 @@ $
 Install and Compile:
 ```C
 (terminal)$ git clone https://github.com/RainInApril/holbertonschool-simple_shell.git
-(terminal)$ gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh
+(terminal)$ make 0
 ```
 Run shell
 ```C
@@ -81,6 +81,14 @@ Exit program and return to the original shell
 #shell$ exit
 (terminal)$
 ```
+##Builtins:##
+Builtins handle reserved words entered into the shell. 
+`env`: prints out the environment variables.
+`exit`: exits the program.
+
+##Signal Handling##
+`Ctrl + C` is trapped by the program and doesn't kill the program as normal. The program
+must be ended by typing exit into the command line.
 
 ## Authors ##
 
