@@ -83,8 +83,8 @@ Exit program and return to the original shell
 ```
 ## Builtins: ##
 Builtins handle reserved words entered into the shell. 
-`env`: prints out the environment variables.
-`exit`: exits the program.
+- `env`: prints out the environment variables.
+- `exit`: exits the program.
 
 ## Signal Handling ##
 `Ctrl + C` is trapped by the program and doesn't kill the program as normal. The program
