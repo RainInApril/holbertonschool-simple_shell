@@ -32,12 +32,11 @@ int _setenv(const char *name, const char *value, int overwrite);
 int argarr(char **args, char *str);
 char *find_command(char *argv);
 int can_exec(char *argv);
-int check_args(char *input, char **argv, char *name, char **env, int i);
-int fork_exec(char **argv, char **env);
+int check_args(char *input, char **argv, char *name, char **env, int i,
+	       int *code);
+int fork_exec(char **argv, char **env, int *code);
 void print_error(char *argv, char *name, int i);
-int builtin(char *input, char **argv);
+int builtin(char *input, char **argv, int *code);
 void _env(void);
 void ctrlc(int signal);
-int exit_code;
-
 #endif /* _MAIN_H_ */
