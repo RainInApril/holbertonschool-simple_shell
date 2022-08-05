@@ -19,7 +19,7 @@ void print_error(char *argv, char *name, int i)
 	if (i < 10)
 	{
 		count[0] = i + '0';
-		count[2] = '\0';
+		count[1] = '\0';
 	}
 	else
 	{
