@@ -38,4 +38,6 @@ void print_error(char *argv, char *name, int i);
 int builtin(char *input, char **argv);
 void _env(void);
 void ctrlc(int signal);
+int exit_code;
+
 #endif /* _MAIN_H_ */

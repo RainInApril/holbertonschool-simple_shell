@@ -1,5 +1,7 @@
 #include "main.h"
 
+int exit_code = 0;
+
 /**
  * get_input - grabs the input from the user.
  *

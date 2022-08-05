@@ -5,6 +5,8 @@ CC=gcc
 CFLAGS=-Wall -Werror -Wextra -pedantic -std=gnu89 -g
 RM=rm -rf
 BETTY=betty
+VALGRIND=valgrind
+VFLAGS= --leak-check=full --show-leak-kinds=all ./hsh
 
 TARGET=hsh
 SRC0=	_getenv.c \
@@ -19,21 +21,11 @@ SRC0=	_getenv.c \
 	builtin.c \
 	_env.c
 
-SRC1=	string_func.c \
-	temp/main.c \
-	argarr.c \
-	node_func.c \
 # shell hsh
-all: 0 1
+all: 0
 
 0:
 	$(CC) $(CFLAGS) $(SRC0) -o $(TARGET)
-
-1:
-	$(CC) $(CFLAGS) $(SRC1) -o $(TARGET)
-
-2:
-	$(CC) -g $(SRC0) -o $(TARGET)
 
 clean:
 	$(RM) *~ \#*\# \.\#* \
@@ -41,3 +33,6 @@ clean:
 
 betty:
 	$(BETTY) $(SRC0)
+
+val:
+	$(VALGRIND) $(VFLAGS)

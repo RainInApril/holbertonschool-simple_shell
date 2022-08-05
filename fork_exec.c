@@ -21,7 +21,9 @@ int fork_exec(char **argv, char **env)
 	{
 /* creates the child process */
 		if (execve(argv[0], argv, env) == -1)
+		{
 			perror("execve");
+		}
 /* case unsuccess execution */
 		return (1);
 	}
@@ -29,6 +31,11 @@ int fork_exec(char **argv, char **env)
 	{
 /*  parent wait for the child porocess */
 		waitpid(pid, &exit_status, 0);
+
+		if (WIFEXITED(exit_status))
+		{
+			exit_code = WEXITSTATUS(exit_status);
+		}
 	}
 	return (0);
 }
