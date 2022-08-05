@@ -71,6 +71,7 @@ char *find_command(char *argv)
  * @name: argv[0] from initalisation of program
  * @env: environmental variables
  * @i: count of commands sent through
+ * @code: pointer to exit status code
  * Return: 0 on sucess
  */
 

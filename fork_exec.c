@@ -4,6 +4,7 @@
  * fork_exec - function that creates a child process
  * @argv: list of arguments
  * @env: environment variables
+ * @code: pointer to exit code status
  * Return: 0 success 1 if error
  */
 

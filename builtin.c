@@ -4,6 +4,7 @@
  * builtin - function to handle builtins
  * @argv: array of strings
  * @input: string from getline
+ * @code: pointer to exit status code
  * Return: 1 if no matches
  */
 
