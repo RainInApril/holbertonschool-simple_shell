@@ -12,7 +12,7 @@ int builtin(char *input, char **argv)
 	if (_strcmp("exit", argv[0]) == 0)
 	{
 		free(input);
-		exit(0);
+		exit(exit_code);
 	}
 
 	if (_strcmp("env", argv[0]) == 0)
