@@ -74,11 +74,12 @@ char *find_command(char *argv)
  * Return: 0 on sucess
  */
 
-int check_args(char *input, char **argv, char *name, char **env, int i)
+int check_args(char *input, char **argv, char *name, char **env, int i,
+	       int *code)
 {
 	char *path = NULL;
 
-	if (builtin(input, argv) == 0)
+	if (builtin(input, argv, code) == 0)
 		return (0);
 	if (*argv[0] == '/' || *argv[0] == '.')
 	{
@@ -109,7 +110,7 @@ int check_args(char *input, char **argv, char *name, char **env, int i)
 		else
 			argv[0] = path;
 	}
-	fork_exec(argv, env);
+	fork_exec(argv, env, code);
 	if (argv[0] == path)
 		free(argv[0]);
 	return (0);

@@ -7,7 +7,7 @@
  * Return: 0 success 1 if error
  */
 
-int fork_exec(char **argv, char **env)
+int fork_exec(char **argv, char **env, int *code)
 {
 	int exit_status;
 	pid_t pid = fork();
@@ -34,7 +34,7 @@ int fork_exec(char **argv, char **env)
 
 		if (WIFEXITED(exit_status))
 		{
-			exit_code = WEXITSTATUS(exit_status);
+			*code = WEXITSTATUS(exit_status);
 		}
 	}
 	return (0);

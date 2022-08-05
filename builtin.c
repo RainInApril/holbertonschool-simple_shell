@@ -7,10 +7,13 @@
  * Return: 1 if no matches
  */
 
-int builtin(char *input, char **argv)
+int builtin(char *input, char **argv, int *code)
 {
+	int exit_code = *code;
+
 	if (_strcmp("exit", argv[0]) == 0)
 	{
+		free(code);
 		free(input);
 		exit(exit_code);
 	}
